@@ -29,7 +29,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.alpha
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
@@ -70,10 +72,29 @@ fun LoginScreen() {
     Box(
         modifier = Modifier.fillMaxSize()
     ) {
+
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .align(Alignment.TopCenter)
+                .alpha(0.1f)
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.backgroundimage), // Remplace avec l'image de fond
+                contentDescription = "Background Image",
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .align(Alignment.Center)
+                    ,
+                contentScale = ContentScale.Crop
+            )
+        }
+
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(16.dp),
+                .padding(16.dp)
+                .align(Alignment.Center), // Centrer les champs de saisie
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -144,7 +165,6 @@ fun LoginScreen() {
                 Text("登录", color = Color.White)
             }
 
-
             if (showDialog) {
                 AlertDialog(
                     onDismissRequest = { showDialog = false },
@@ -156,12 +176,11 @@ fun LoginScreen() {
                             colors = ButtonDefaults.buttonColors(containerColor = customColor)
                         ) {
                             Text("OK", color = Color.White)
-                        }// Hex color #0CBC8B
+                        }
                     }
                 )
             }
         }
-
 
         Box(
             modifier = Modifier
@@ -186,6 +205,7 @@ fun LoginScreen() {
         }
     }
 }
+
 
 @Preview(showBackground = true)
 @Composable
