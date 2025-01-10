@@ -13,7 +13,7 @@ This project showcases a simple login screen built with Jetpack Compose. It incl
 
 Below is a screenshot of the login screen:
 
-![Login Screen](image_url)
+![Login Screen](https://github.com/nathan79-c/UiLoginTest/blob/master/app/src/main/res/drawable/screenshot_from_2025_01_10_20_44_16.png)
 
 ## Instructions
 
